@@ -44,7 +44,7 @@ def Command_One(message):
     client_id = message.from_user.id
     NameClient = get_NameUsers(client_id)
     LastCommand[client_id] = 'Command_weather'
-    bot.send_message(chat_id=client_id, text=f"{NameClient}Введите город, в котором хотите узнать температуру: ")
+    bot.send_message(chat_id=client_id, text=f"{NameClient}Введи город, в котором хочешь узнать температуру: ")
 
 
 @bot.message_handler(commands=['translation'])
@@ -57,7 +57,7 @@ def Command_Two(message):
     client_id = message.from_user.id
     NameClient = get_NameUsers(client_id)
     LastCommand[client_id] = 'Command_translation'
-    bot.send_message(chat_id=client_id, text=f"{NameClient} Введите код языка для перевода: ")
+    bot.send_message(chat_id=client_id, text=f"{NameClient} Введи код языка для перевода: ")
     bot.register_next_step_handler(message, get_language)
 
 
@@ -84,7 +84,7 @@ def Command_Reg(message):
     client_id = message.from_user.id
     LastCommand[client_id] = 'Command_Reg'
     UserInfo[client_id] = dict(name='', surnme='')
-    bot.send_message(chat_id=client_id, text='Введите Ваше Имя:')
+    bot.send_message(chat_id=client_id, text='Введи свое Имя:')
     bot.register_next_step_handler(message, get_name)
 
 
@@ -122,9 +122,9 @@ def get_surname(message):
     """
     client_id = message.from_user.id
     UserInfo[client_id]['surnme'] = message.text
-    bot.send_message(message.from_user.id, f"""
+    bot.send_message(message.from_user.id, f"""\
     Очень приятно, {UserInfo[client_id]['name']} {UserInfo[client_id]['surnme']}
-Выбери команду, которую ты хочешь выполнить, а для этого введи /help""")
+    \nВыбери команду, которую ты хочешь выполнить, а для этого введи /help""")
     del LastCommand[client_id]
 
 
@@ -210,7 +210,7 @@ def get_language(message):
     printstr = printstr + Codelanguage[findlg] + " язык\n"
     Lastlanguage[client_id] = findlg
     bot.send_message(message.from_user.id, printstr)
-    bot.send_message(message.from_user.id, f'{NameClient}\nВведите текст для перевода:')
+    bot.send_message(message.from_user.id, f'{NameClient}\nВведи текст для перевода:')
     bot.register_next_step_handler(message, get_translation)
 
 
