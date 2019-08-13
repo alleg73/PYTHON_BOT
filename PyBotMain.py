@@ -260,7 +260,7 @@ def get_text_messages(message):
         bot.send_message(message.from_user.id, f"""Привет,{NameClient} введи команду /help и я расскажу, что я умею""")
 
     else:
-        bot.send_message(message.from_user.id, f"{NameClient} Напиши мне 'Привет' или вызови команду /help")
+        bot.send_message(message.from_user.id, f"{NameClient} Я не понимаю команду, которую ввели. Вызовите /help")
 
 
 bot.polling(none_stop=True)
