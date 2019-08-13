@@ -122,7 +122,8 @@ def get_surname(message):
     """
     client_id = message.from_user.id
     UserInfo[client_id]['surnme'] = message.text
-    bot.send_message(message.from_user.id, f"""Очень приятно, {UserInfo[client_id]['name']} {UserInfo[client_id]['surnme']}
+    bot.send_message(message.from_user.id, f"""
+    Очень приятно, {UserInfo[client_id]['name']} {UserInfo[client_id]['surnme']}
 Выбери команду, которую ты хочешь выполнить, а для этого введи /help""")
     del LastCommand[client_id]
 
