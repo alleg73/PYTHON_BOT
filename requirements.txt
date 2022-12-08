@@ -3,7 +3,7 @@ request==2019.4.13
 requests==2.7.0
 pyowm==2.10.0
 pyTelegramBotAPI==3.6.6
-certifi==2019.6.16
+certifi==2022.12.7
 chardet==3.0.4
 geojson==2.5.0
 get==2019.4.13
